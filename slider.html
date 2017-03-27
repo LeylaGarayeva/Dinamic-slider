@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Slider</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img id="logo" src="img/img1.jpg" style="width: 500px;height: 200px"> 
+        </div>
+        <div id="text">1ci</div>
+        <button id="sekli_geri" onclick="priev()">Priew</button>
+        <button id="sekli_deyis" onclick="next()">Next</button>
+        
+    </div>
+
+</body>
+
+<script>
+var images=['img/img2.jpg','img/img3.jpg','img/img1.jpg'];  //for dinamic slider
+var text= ['2ci','3ci','1ci'];
+var imgg=document.querySelector(".logo img");
+var textt=document.querySelector("#text");
+var img=document.getElementsByTagName("img");
+var count=img.length;
+// var click = 0;
+function next() {
+	// for   static slider
+	
+    // click++;
+    // if (click == 1) {
+    //     document.getElementById('logo').setAttribute('src', 'img/img2.jpg');  
+    //     document.getElementById('text').innerHTML='2ci';
+    // } else if (click == 2) {
+    //     document.getElementById('logo').setAttribute('src', 'img/img3.jpg');
+    //     document.getElementById('text').innerHTML='3ci';
+    // } else {
+    //     document.getElementById('logo').setAttribute('src', 'img/img1.jpg');
+    //     document.getElementById('text').innerHTML='1ci';
+    //     click = 0;
+    // }
+
+         count++;
+		if(count>images.length-1){
+			count=0;
+		}
+    imgg.setAttribute("src",images[count]);
+	textt.innerHTML=text[count];
+
+}
+		function priev() {
+		   count--;
+			if(count<0){
+				count=images.length-1;
+			}
+			imgg.setAttribute("src",images[count]);
+			textt.innerHTML=text[count];
+
+		}
+</script>
+
+</html>
